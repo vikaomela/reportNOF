@@ -1,0 +1,775 @@
+
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nature’s Own Factory — marketing report, 25–31 May 2026</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        background: #f7f7f5;
+        color: #1f2933;
+        line-height: 1.45;
+    }
+    .container {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 32px 20px 64px;
+    }
+    .hero {
+        background: white;
+        border-radius: 22px;
+        padding: 28px;
+        box-shadow: 0 8px 28px rgba(0,0,0,.06);
+        margin-bottom: 22px;
+    }
+    h1 {
+        margin: 0 0 8px;
+        font-size: 34px;
+        letter-spacing: -0.03em;
+    }
+    h2 {
+        margin: 34px 0 14px;
+        font-size: 24px;
+    }
+    h3 {
+        margin: 22px 0 8px;
+        font-size: 18px;
+    }
+    .muted {
+        color: #67707b;
+        font-size: 14px;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin: 18px 0 0;
+    }
+    .card {
+        background: white;
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: 0 6px 20px rgba(0,0,0,.05);
+        border: 1px solid #edf0f2;
+    }
+    .label {
+        color: #67707b;
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+    .value {
+        font-size: 25px;
+        font-weight: 750;
+        letter-spacing: -0.02em;
+    }
+    .delta {
+        margin-top: 6px;
+        color: #67707b;
+        font-size: 13px;
+    }
+    .section {
+        background: white;
+        border-radius: 22px;
+        padding: 24px;
+        box-shadow: 0 8px 28px rgba(0,0,0,.06);
+        margin-bottom: 22px;
+    }
+    .chart {
+        width: 100%;
+        height: 430px;
+    }
+    .note {
+        border-left: 4px solid #b59b5b;
+        background: #fffaf0;
+        padding: 12px 14px;
+        border-radius: 12px;
+        margin: 14px 0;
+    }
+    ul {
+        padding-left: 22px;
+    }
+    li {
+        margin: 7px 0;
+    }
+    .data-table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 13px;
+        margin-top: 12px;
+    }
+    .data-table th {
+        text-align: left;
+        background: #f0f2f4;
+        padding: 10px;
+        position: sticky;
+        top: 0;
+    }
+    .data-table td {
+        padding: 9px 10px;
+        border-bottom: 1px solid #edf0f2;
+        vertical-align: top;
+    }
+    .table-wrap {
+        overflow-x: auto;
+        max-height: 560px;
+        border: 1px solid #edf0f2;
+        border-radius: 14px;
+    }
+    .pill {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 999px;
+        background: #eef2f6;
+        font-size: 13px;
+        margin-right: 6px;
+        margin-top: 6px;
+    }
+    @media (max-width: 900px) {
+        .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        h1 { font-size: 28px; }
+    }
+    @media (max-width: 560px) {
+        .grid { grid-template-columns: 1fr; }
+        .hero, .section { padding: 18px; border-radius: 18px; }
+        .chart { height: 380px; }
+    }
+
+    .comparison-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 0.9fr;
+        gap: 10px;
+        margin-top: 16px;
+    }
+    .comparison-head {
+        color: #67707b;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        padding: 0 10px 4px;
+    }
+    .comparison-row {
+        display: contents;
+    }
+    .comparison-cell {
+        background: #fbfbfa;
+        border: 1px solid #edf0f2;
+        padding: 13px 14px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        min-height: 48px;
+    }
+    .comparison-cell.metric {
+        border-radius: 14px 0 0 14px;
+        font-weight: 650;
+    }
+    .comparison-cell.current {
+        font-weight: 700;
+    }
+    .comparison-cell.change-cell {
+        border-radius: 0 14px 14px 0;
+        justify-content: flex-end;
+    }
+    .change-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 72px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-weight: 800;
+        font-size: 13px;
+    }
+    .change-good {
+        background: #e7f6ec;
+        color: #137333;
+        border: 1px solid #bfe6ca;
+    }
+    .change-bad {
+        background: #fdeaea;
+        color: #b42318;
+        border: 1px solid #f5c2c2;
+    }
+    .change-neutral {
+        background: #eef2f6;
+        color: #67707b;
+        border: 1px solid #d9e0e7;
+    }
+    .comparison-toolbar {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 14px;
+        margin-bottom: 6px;
+    }
+    .filter-btn {
+        border: 1px solid #d9e0e7;
+        background: #fff;
+        color: #1f2933;
+        border-radius: 999px;
+        padding: 7px 12px;
+        font-size: 13px;
+        cursor: pointer;
+    }
+    .filter-btn.active {
+        background: #1f2933;
+        color: white;
+        border-color: #1f2933;
+    }
+    .comparison-note {
+        margin-top: 12px;
+        color: #67707b;
+        font-size: 13px;
+    }
+    @media (max-width: 760px) {
+        .comparison-grid {
+            grid-template-columns: 1fr;
+        }
+        .comparison-head {
+            display: none;
+        }
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            margin-bottom: 12px;
+            border: 1px solid #edf0f2;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #fbfbfa;
+        }
+        .comparison-cell {
+            border: 0;
+            border-bottom: 1px solid #edf0f2;
+            justify-content: space-between;
+        }
+        .comparison-cell.metric,
+        .comparison-cell.change-cell {
+            border-radius: 0;
+        }
+        .comparison-cell.metric::before { content: ""; }
+        .comparison-cell.current::before { content: "25–31 мая"; color: #67707b; font-weight: 500; }
+        .comparison-cell.previous::before { content: "18–24 мая"; color: #67707b; }
+        .comparison-cell.change-cell::before { content: "Изменение"; color: #67707b; }
+    }
+
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <div class="muted">Клиентский маркетинговый отчёт · Nature’s Own Factory · Shopify + Meta Ads + Email</div>
+        <h1>Отчёт за 25–31 мая 2026</h1>
+        <div class="muted">Валюта: AED · Часовой пояс магазина: +04 · Период сравнения: 18–24 мая 2026</div>
+
+        <div class="grid">
+            <div class="card"><div class="label">Total sales</div><div class="value">4 817.40 AED</div><div class="delta">vs prev week: -51.5%</div></div>
+            <div class="card"><div class="label">Gross sales</div><div class="value">5 244.75 AED</div><div class="delta">vs prev week: -46.4%</div></div>
+            <div class="card"><div class="label">Заказы</div><div class="value">27</div><div class="delta">vs prev week: -27.0%</div></div>
+            <div class="card"><div class="label">AOV</div><div class="value">178.42 AED</div><div class="delta">vs prev week: -33.6%</div></div>
+            <div class="card"><div class="label">Shopify CR</div><div class="value">1.54%</div><div class="delta">vs prev week: -23.9%</div></div>
+            <div class="card"><div class="label">Meta spend</div><div class="value">2 917.50 AED</div><div class="delta">vs prev week: -19.1%</div></div>
+            <div class="card"><div class="label">Blended ROAS</div><div class="value">1.65</div><div class="delta">prev week: 2.76 · change: -40.1%</div></div>
+            <div class="card"><div class="label">Email revenue</div><div class="value">621.00 AED</div><div class="delta">12.89% от total sales</div></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Executive summary</h2>
+        <p>
+            За неделю 25–31 мая магазин получил <strong>4 817.40 AED</strong> total sales и <strong>5 244.75 AED</strong> gross sales при <strong>27</strong> заказах. По сравнению с предыдущей неделей объём продаж ниже, при этом рекламный бюджет Meta также был ниже: <strong>2 917.50 AED</strong> против <strong>3 607.64 AED</strong> неделей ранее.
+        </p>
+        <p>
+            Снижение blended ROAS связано в первую очередь с общим снижением выручки и среднего чека в Shopify, а не с резким ростом рекламных расходов. На этой неделе средний чек составил <strong>178.42 AED</strong>, тогда как неделей ранее он был <strong>268.69 AED</strong>. Это показывает, что на итоговый результат повлияла структура заказов и более низкая доля высокочековых покупок.
+        </p>
+        <p>
+            При этом Meta Ads продолжала приносить покупки: по атрибуции рекламного кабинета зафиксировано <strong>22</strong> покупок и <strong>3 766.55 AED</strong> revenue. Email-маркетинг дополнительно принёс <strong>621.00 AED</strong> за неделю.
+        </p>
+        <p>
+            На следующую неделю фокус — удерживать контролируемый бюджет, усиливать офферы с более высоким средним чеком и перераспределять бюджет в пользу связок, которые дают покупки и более стабильный ROAS.
+        </p>
+
+    <div class="section">
+        <h2>Сравнение с предыдущей неделей</h2>
+        <p>
+            Ниже — динамика по ключевым показателям относительно периода 18–24 мая 2026. 
+            Зелёным отмечены улучшения, красным — показатели, которые стали слабее.
+        </p>
+
+        <div class="comparison-toolbar">
+            <button class="filter-btn active" data-filter="all">Все показатели</button>
+            <button class="filter-btn" data-filter="good">Только улучшения</button>
+            <button class="filter-btn" data-filter="bad">Только просадки</button>
+        </div>
+
+        <div class="comparison-grid" id="comparisonGrid">
+            <div class="comparison-head">Показатель</div>
+            <div class="comparison-head">25–31 мая</div>
+            <div class="comparison-head">18–24 мая</div>
+            <div class="comparison-head">Изменение</div>
+
+            <div class="comparison-row" data-status="bad">
+                <div class="comparison-cell metric">Total sales</div>
+                <div class="comparison-cell current">4 817.40 AED</div>
+                <div class="comparison-cell previous">9 941.45 AED</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-bad">-51.5%</span></div>
+            </div>
+
+            <div class="comparison-row" data-status="bad">
+                <div class="comparison-cell metric">Gross sales</div>
+                <div class="comparison-cell current">5 244.75 AED</div>
+                <div class="comparison-cell previous">9 789.00 AED</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-bad">-46.4%</span></div>
+            </div>
+
+            <div class="comparison-row" data-status="bad">
+                <div class="comparison-cell metric">Orders</div>
+                <div class="comparison-cell current">27</div>
+                <div class="comparison-cell previous">37</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-bad">-27.0%</span></div>
+            </div>
+
+            <div class="comparison-row" data-status="bad">
+                <div class="comparison-cell metric">Sessions</div>
+                <div class="comparison-cell current">1 754</div>
+                <div class="comparison-cell previous">1 829</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-bad">-4.1%</span></div>
+            </div>
+
+            <div class="comparison-row" data-status="bad">
+                <div class="comparison-cell metric">Shopify CR</div>
+                <div class="comparison-cell current">1.54%</div>
+                <div class="comparison-cell previous">2.02%</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-bad">-23.8%</span></div>
+            </div>
+
+            <div class="comparison-row" data-status="bad">
+                <div class="comparison-cell metric">AOV</div>
+                <div class="comparison-cell current">178.42 AED</div>
+                <div class="comparison-cell previous">268.69 AED</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-bad">-33.6%</span></div>
+            </div>
+
+            <div class="comparison-row" data-status="good">
+                <div class="comparison-cell metric">Meta spend</div>
+                <div class="comparison-cell current">2 917.50 AED</div>
+                <div class="comparison-cell previous">3 612.58 AED</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-good">-19.2%</span></div>
+            </div>
+
+            <div class="comparison-row" data-status="bad">
+                <div class="comparison-cell metric">Meta attributed purchases</div>
+                <div class="comparison-cell current">21</div>
+                <div class="comparison-cell previous">26</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-bad">-19.2%</span></div>
+            </div>
+
+            <div class="comparison-row" data-status="bad">
+                <div class="comparison-cell metric">Meta attributed revenue</div>
+                <div class="comparison-cell current">3 766.55 AED</div>
+                <div class="comparison-cell previous">4 032.62 AED</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-bad">-6.6%</span></div>
+            </div>
+
+            <div class="comparison-row" data-status="bad">
+                <div class="comparison-cell metric">Blended ROAS</div>
+                <div class="comparison-cell current">1.65</div>
+                <div class="comparison-cell previous">2.75</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-bad">-40.0%</span></div>
+            </div>
+
+            <div class="comparison-row" data-status="neutral">
+                <div class="comparison-cell metric">Email revenue</div>
+                <div class="comparison-cell current">621 AED</div>
+                <div class="comparison-cell previous">—</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-neutral">—</span></div>
+            </div>
+        </div>
+
+        <div class="comparison-note">
+            Для Meta spend снижение отмечено зелёным, так как бюджет был оптимизирован вниз. Для revenue, orders, CR, AOV и Blended ROAS рост считается улучшением, снижение — просадкой.
+        </div>
+    </div>
+
+
+    <div class="section">
+        <h2>Top Products by Total Sales</h2>
+        <div id="productChart" class="chart"></div>
+    </div>
+
+    <div class="section">
+        <h2>Shopify Performance</h2>
+        <div>
+            <span class="pill">Total sales: 4 817.40 AED</span>
+            <span class="pill">Gross sales: 5 244.75 AED</span>
+            <span class="pill">Net sales: 4 417.40 AED</span>
+            <span class="pill">Discounts: -348.95 AED</span>
+            <span class="pill">Returns: -478.40 AED</span>
+            <span class="pill">Shipping: 400.00 AED</span>
+        </div>
+        <p>
+            За период было <strong>1 754</strong> сессии и <strong>1 615</strong> посетителей. 
+            Воронка: <strong>142</strong> сессий с добавлением в корзину, 
+            <strong>112</strong> сессий дошли до checkout, 
+            <strong>27</strong> completed checkout. 
+            Итоговая конверсия Shopify — <strong>1.54%</strong>.
+        </p>
+
+        <h3>Performance по дням</h3>
+        <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Дата</th>
+      <th>Заказы</th>
+      <th>Gross sales</th>
+      <th>Total sales</th>
+      <th>Сессии</th>
+      <th>CR Shopify</th>
+      <th>Meta spend</th>
+      <th>Meta purchases</th>
+      <th>Meta revenue</th>
+      <th>Meta ROAS</th>
+      <th>Blended ROAS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2026-05-25</td>
+      <td>0</td>
+      <td>0.00 AED</td>
+      <td>-415.40 AED</td>
+      <td>189</td>
+      <td>0.00%</td>
+      <td>306.57 AED</td>
+      <td>0</td>
+      <td>0.00 AED</td>
+      <td>0.00</td>
+      <td>-1.35</td>
+    </tr>
+    <tr>
+      <td>2026-05-26</td>
+      <td>5</td>
+      <td>877.00 AED</td>
+      <td>948.50 AED</td>
+      <td>234</td>
+      <td>2.14%</td>
+      <td>395.80 AED</td>
+      <td>3</td>
+      <td>532.45 AED</td>
+      <td>1.35</td>
+      <td>2.40</td>
+    </tr>
+    <tr>
+      <td>2026-05-27</td>
+      <td>3</td>
+      <td>322.00 AED</td>
+      <td>360.20 AED</td>
+      <td>195</td>
+      <td>1.54%</td>
+      <td>417.43 AED</td>
+      <td>3</td>
+      <td>360.20 AED</td>
+      <td>0.86</td>
+      <td>0.86</td>
+    </tr>
+    <tr>
+      <td>2026-05-28</td>
+      <td>3</td>
+      <td>1 288.00 AED</td>
+      <td>1 257.80 AED</td>
+      <td>164</td>
+      <td>1.83%</td>
+      <td>276.03 AED</td>
+      <td>2</td>
+      <td>383.80 AED</td>
+      <td>1.39</td>
+      <td>4.56</td>
+    </tr>
+    <tr>
+      <td>2026-05-29</td>
+      <td>4</td>
+      <td>656.50 AED</td>
+      <td>688.85 AED</td>
+      <td>307</td>
+      <td>1.30%</td>
+      <td>418.75 AED</td>
+      <td>3</td>
+      <td>493.90 AED</td>
+      <td>1.18</td>
+      <td>1.65</td>
+    </tr>
+    <tr>
+      <td>2026-05-30</td>
+      <td>6</td>
+      <td>1 185.75 AED</td>
+      <td>1 172.85 AED</td>
+      <td>282</td>
+      <td>2.13%</td>
+      <td>550.16 AED</td>
+      <td>5</td>
+      <td>1 028.60 AED</td>
+      <td>1.87</td>
+      <td>2.13</td>
+    </tr>
+    <tr>
+      <td>2026-05-31</td>
+      <td>6</td>
+      <td>915.50 AED</td>
+      <td>804.60 AED</td>
+      <td>383</td>
+      <td>1.57%</td>
+      <td>552.76 AED</td>
+      <td>6</td>
+      <td>967.60 AED</td>
+      <td>1.75</td>
+      <td>1.46</td>
+    </tr>
+  </tbody>
+</table></div>
+
+        <h3>Источники продаж по Shopify-referrer</h3>
+        <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Источник</th>
+      <th>Заказы</th>
+      <th>Total sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>social / instagram</td>
+      <td>16</td>
+      <td>2 105.85 AED</td>
+    </tr>
+    <tr>
+      <td>unattributed / direct / unknown</td>
+      <td>4</td>
+      <td>1 445.00 AED</td>
+    </tr>
+    <tr>
+      <td>unattributed / instagram</td>
+      <td>3</td>
+      <td>499.30 AED</td>
+    </tr>
+    <tr>
+      <td>unattributed / shopify</td>
+      <td>1</td>
+      <td>300.60 AED</td>
+    </tr>
+    <tr>
+      <td>social / facebook</td>
+      <td>2</td>
+      <td>264.80 AED</td>
+    </tr>
+    <tr>
+      <td>unattributed / naturesownfactory</td>
+      <td>1</td>
+      <td>201.85 AED</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+
+    <div class="section">
+        <h2>Meta Ads</h2>
+        <p>
+            За период 25–31 мая рекламный бюджет Meta составил <strong>2 917.50 AED</strong>. 
+            По атрибуции Meta Ads зафиксировано <strong>21 покупка</strong> и <strong>3 766.55 AED</strong> revenue.
+        </p>
+        <p>
+            Кампании продолжали приносить покупки при более контролируемом бюджете. Для оценки общей эффективности недели в отчёте используется <strong>Blended ROAS</strong>, так как он показывает соотношение общей Shopify-выручки и рекламных расходов. На следующую неделю фокус остаётся на аккуратной оптимизации: усиливать связки, которые дают продажи, и параллельно работать с офферами, которые помогают поднимать средний чек.
+        </p>
+
+        <h3>Кампании</h3>
+        <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Кампания</th>
+      <th>Spend</th>
+      <th>Meta revenue</th>
+      <th>Purchases</th>
+      
+      <th>CPA purchase</th>
+      <th>Impressions</th>
+      <th>Reach</th>
+      <th>Clicks</th>
+      <th>CTR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>29.05 | roas goal | partnership</td><td>1 027.78 AED</td><td>1 226.50 AED</td><td>6</td><td>171.30 AED</td><td>14051</td><td>8955</td><td>275</td><td>1.96%</td></tr>
+    <tr><td>Sales | offer | LAL with catalog+ - CPR GOAL70</td><td>565.68 AED</td><td>1 173.60 AED</td><td>8</td><td>70.71 AED</td><td>10897</td><td>8205</td><td>184</td><td>1.69%</td></tr>
+    <tr><td>New Sales | 07.05 | A+ - Copy</td><td>517.68 AED</td><td>489.00 AED</td><td>3</td><td>172.56 AED</td><td>8725</td><td>6872</td><td>190</td><td>2.18%</td></tr>
+    <tr><td>Sales | 08.04 | LAL with catalog+</td><td>416.42 AED</td><td>806.45 AED</td><td>4</td><td>104.10 AED</td><td>7355</td><td>5451</td><td>149</td><td>2.03%</td></tr>
+    <tr><td>Sales | offer | LAL with catalog+</td><td>253.63 AED</td><td>0.00 AED</td><td>0</td><td>—</td><td>4623</td><td>2467</td><td>48</td><td>1.04%</td></tr>
+    <tr><td>New Sales | 07.05 | A+</td><td>136.31 AED</td><td>71.00 AED</td><td>1</td><td>136.31 AED</td><td>2438</td><td>1822</td><td>47</td><td>1.93%</td></tr>
+  </tbody>
+</table></div>
+    </div>
+
+
+    <div class="section">
+        <h2>Blended ROAS</h2>
+        <p>
+            Формула: <strong>Shopify total sales / Meta spend</strong>. За неделю: 
+            <strong>4 817.40 AED / 2 917.50 AED = 1.65</strong>.
+        </p>
+        <p>
+            На предыдущей неделе blended ROAS был <strong>2.76</strong>. Текущее значение ниже на <strong>-40.1%</strong>. Это связано с более низкой общей выручкой Shopify и снижением среднего чека на текущей неделе.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Email Marketing</h2>
+        <p>
+            Email-маркетинг за период 25–31 мая принёс <strong>621.00 AED</strong>. Это составляет около <strong>12.89%</strong> от total sales за неделю.
+        </p>
+        <p>
+            Email остаётся дополнительным каналом поддержки продаж: его вклад помогает компенсировать колебания performance-каналов и поддерживать повторные касания с аудиторией.
+        </p>
+    </div>
+
+    
+    <div class="section">
+        <h2>Выводы и итоги</h2>
+        <p>
+            Неделя 25–31 мая прошла с более спокойной динамикой по продажам: total sales составили <strong>4 817.40 AED</strong>, gross sales — <strong>5 244.75 AED</strong>. Основное отличие от предыдущей недели — более низкий средний чек и меньшая доля высокочековых заказов, что видно в сравнительной таблице выше.
+        </p>
+        <p>
+            Рекламный бюджет Meta был ниже, чем неделей ранее, при этом кампании продолжали приносить покупки и revenue. Поэтому текущую динамику корректнее рассматривать как результат совокупности факторов: структуры заказов, среднего чека, сезонного спроса и распределения продаж между каналами.
+        </p>
+        <p>
+            Email-маркетинг дополнительно принёс <strong>621 AED</strong>, что поддержало общий результат недели. На следующем этапе фокус остаётся на усилении продуктов и наборов с более высоким чеком, контроле бюджета и перераспределении расходов в пользу связок, которые дают наиболее стабильные покупки.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Top Products Table</h2>
+
+        <div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Продукт</th>
+      <th>Orders</th>
+      <th>Total sales</th>
+      <th>Gross sales</th>
+      <th>Net sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Chocolate Bar with Popping Candy &amp; Crunchy Crispies</td>
+      <td>22</td>
+      <td>1 697.40 AED</td>
+      <td>1 978.00 AED</td>
+      <td>1 697.40 AED</td>
+    </tr>
+    <tr>
+      <td>Chocolate Bar with Cotton Candy &amp; Crunchy Crispies</td>
+      <td>17</td>
+      <td>814.20 AED</td>
+      <td>1 012.00 AED</td>
+      <td>814.20 AED</td>
+    </tr>
+    <tr>
+      <td>Milk Chocolate Bar with Crunchy Crispies</td>
+      <td>13</td>
+      <td>598.00 AED</td>
+      <td>828.00 AED</td>
+      <td>598.00 AED</td>
+    </tr>
+    <tr>
+      <td>NATURES OWN FACTORY - EID GIFT BOX</td>
+      <td>3</td>
+      <td>529.20 AED</td>
+      <td>588.00 AED</td>
+      <td>529.20 AED</td>
+    </tr>
+    <tr>
+      <td>Unattributed / blank product line</td>
+      <td>0</td>
+      <td>400.00 AED</td>
+      <td>0.00 AED</td>
+      <td>0.00 AED</td>
+    </tr>
+    <tr>
+      <td>Milk Chocolate x 24 packs</td>
+      <td>1</td>
+      <td>270.00 AED</td>
+      <td>270.00 AED</td>
+      <td>270.00 AED</td>
+    </tr>
+    <tr>
+      <td>Dubai Chocolate</td>
+      <td>4</td>
+      <td>165.60 AED</td>
+      <td>184.00 AED</td>
+      <td>165.60 AED</td>
+    </tr>
+    <tr>
+      <td>Dubai Dark Chocolate 61% Cocoa with Pistachio and Kunafa Filling</td>
+      <td>3</td>
+      <td>127.50 AED</td>
+      <td>153.00 AED</td>
+      <td>127.50 AED</td>
+    </tr>
+    <tr>
+      <td>Buckwheat Tea with Coconut</td>
+      <td>1</td>
+      <td>79.50 AED</td>
+      <td>79.50 AED</td>
+      <td>79.50 AED</td>
+    </tr>
+    <tr>
+      <td>Dark Chocolate 61%</td>
+      <td>3</td>
+      <td>62.50 AED</td>
+      <td>75.00 AED</td>
+      <td>62.50 AED</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+</div>
+
+<script>
+const d = {"products": ["Dark Chocolate 61%", "Buckwheat Tea with Coconut", "Dubai Dark Chocolate 61% Cocoa with Pistachio and Kunafa Filling", "Dubai Chocolate", "Milk Chocolate x 24 packs", "Unattributed / blank product line", "NATURES OWN FACTORY - EID GIFT BOX", "Milk Chocolate Bar with Crunchy Crispies", "Chocolate Bar with Cotton Candy & Crunchy Crispies", "Chocolate Bar with Popping Candy & Crunchy Crispies"], "product_sales": [62.5, 79.5, 127.5, 165.6, 270.0, 400.0, 529.2, 598.0, 814.2, 1697.4]};
+const layoutBase = {
+    paper_bgcolor: "white",
+    plot_bgcolor: "white",
+    margin: {l: 230, r: 30, t: 55, b: 55},
+    hovermode: "closest",
+    font: {family: "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif"}
+};
+
+Plotly.newPlot("productChart", [
+    {y: d.products, x: d.product_sales, type: "bar", orientation: "h", name: "Total sales, AED"}
+], {
+    ...layoutBase,
+    title: "Top Products by Total Sales",
+    xaxis: {title: "AED"},
+    yaxis: {automargin: true}
+}, {responsive: true});
+</script>
+
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.comparison-row').forEach(row => {
+            row.style.display = (filter === 'all' || row.dataset.status === filter) ? 'contents' : 'none';
+        });
+    });
+});
+</script>
+
+</body>
+</html>
