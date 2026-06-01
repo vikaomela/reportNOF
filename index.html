@@ -137,6 +137,127 @@
         .hero, .section { padding: 18px; border-radius: 18px; }
         .chart { height: 380px; }
     }
+
+    .comparison-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 0.9fr;
+        gap: 10px;
+        margin-top: 16px;
+    }
+    .comparison-head {
+        color: #67707b;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        padding: 0 10px 4px;
+    }
+    .comparison-row {
+        display: contents;
+    }
+    .comparison-cell {
+        background: #fbfbfa;
+        border: 1px solid #edf0f2;
+        padding: 13px 14px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        min-height: 48px;
+    }
+    .comparison-cell.metric {
+        border-radius: 14px 0 0 14px;
+        font-weight: 650;
+    }
+    .comparison-cell.current {
+        font-weight: 700;
+    }
+    .comparison-cell.change-cell {
+        border-radius: 0 14px 14px 0;
+        justify-content: flex-end;
+    }
+    .change-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 72px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-weight: 800;
+        font-size: 13px;
+    }
+    .change-good {
+        background: #e7f6ec;
+        color: #137333;
+        border: 1px solid #bfe6ca;
+    }
+    .change-bad {
+        background: #fdeaea;
+        color: #b42318;
+        border: 1px solid #f5c2c2;
+    }
+    .change-neutral {
+        background: #eef2f6;
+        color: #67707b;
+        border: 1px solid #d9e0e7;
+    }
+    .comparison-toolbar {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 14px;
+        margin-bottom: 6px;
+    }
+    .filter-btn {
+        border: 1px solid #d9e0e7;
+        background: #fff;
+        color: #1f2933;
+        border-radius: 999px;
+        padding: 7px 12px;
+        font-size: 13px;
+        cursor: pointer;
+    }
+    .filter-btn.active {
+        background: #1f2933;
+        color: white;
+        border-color: #1f2933;
+    }
+    .comparison-note {
+        margin-top: 12px;
+        color: #67707b;
+        font-size: 13px;
+    }
+    @media (max-width: 760px) {
+        .comparison-grid {
+            grid-template-columns: 1fr;
+        }
+        .comparison-head {
+            display: none;
+        }
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            margin-bottom: 12px;
+            border: 1px solid #edf0f2;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #fbfbfa;
+        }
+        .comparison-cell {
+            border: 0;
+            border-bottom: 1px solid #edf0f2;
+            justify-content: space-between;
+        }
+        .comparison-cell.metric,
+        .comparison-cell.change-cell {
+            border-radius: 0;
+        }
+        .comparison-cell.metric::before { content: ""; }
+        .comparison-cell.current::before { content: "25–31 мая"; color: #67707b; font-weight: 500; }
+        .comparison-cell.previous::before { content: "18–24 мая"; color: #67707b; }
+        .comparison-cell.change-cell::before { content: "Изменение"; color: #67707b; }
+    }
+
 </style>
 </head>
 <body>
@@ -172,101 +293,94 @@
         <p>
             На следующую неделю фокус — удерживать контролируемый бюджет, усиливать офферы с более высоким средним чеком и перераспределять бюджет в пользу связок, которые дают покупки и более стабильный ROAS.
         </p>
-    
 
     <div class="section">
         <h2>Сравнение с предыдущей неделей</h2>
         <p>
-            Ниже — динамика по ключевым показателям относительно периода 18–24 мая 2026.
+            Ниже — динамика по ключевым показателям относительно периода 18–24 мая 2026. 
+            Зелёным отмечены улучшения, красным — показатели, которые стали слабее.
         </p>
-        <div class="table-wrap">
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Показатель</th>
-                        <th>25–31 мая</th>
-                        <th>18–24 мая</th>
-                        <th>Изменение</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Total sales</td>
-                        <td>4 817.40 AED</td>
-                        <td>9 941.45 AED</td>
-                        <td>-51.5%</td>
-                    </tr>
-                    <tr>
-                        <td>Gross sales</td>
-                        <td>5 244.75 AED</td>
-                        <td>9 789.00 AED</td>
-                        <td>-46.4%</td>
-                    </tr>
-                    <tr>
-                        <td>Orders</td>
-                        <td>27</td>
-                        <td>37</td>
-                        <td>-27.0%</td>
-                    </tr>
-                    <tr>
-                        <td>Sessions</td>
-                        <td>1 754</td>
-                        <td>1 829</td>
-                        <td>-4.1%</td>
-                    </tr>
-                    <tr>
-                        <td>Shopify CR</td>
-                        <td>1.54%</td>
-                        <td>2.02%</td>
-                        <td>-23.8%</td>
-                    </tr>
-                    <tr>
-                        <td>AOV</td>
-                        <td>178.42 AED</td>
-                        <td>268.69 AED</td>
-                        <td>-33.6%</td>
-                    </tr>
-                    <tr>
-                        <td>Meta spend</td>
-                        <td>2 917.50 AED</td>
-                        <td>3 612.58 AED</td>
-                        <td>-19.2%</td>
-                    </tr>
-                    <tr>
-                        <td>Meta attributed purchases</td>
-                        <td>21</td>
-                        <td>26</td>
-                        <td>-19.2%</td>
-                    </tr>
-                    <tr>
-                        <td>Meta attributed revenue</td>
-                        <td>3 766.55 AED</td>
-                        <td>4 032.62 AED</td>
-                        <td>-6.6%</td>
-                    </tr>
-                    <tr>
-                        <td>Meta ROAS</td>
-                        <td>1.29</td>
-                        <td>1.12</td>
-                        <td>+15.6%</td>
-                    </tr>
-                    <tr>
-                        <td>Blended ROAS</td>
-                        <td>1.65</td>
-                        <td>2.75</td>
-                        <td>-40.0%</td>
-                    </tr>
-                    <tr>
-                        <td>Email revenue</td>
-                        <td>621 AED</td>
-                        <td>—</td>
-                        <td>—</td>
-                    </tr>
-                </tbody>
-            </table>
+
+        <div class="comparison-toolbar">
+            <button class="filter-btn active" data-filter="all">Все показатели</button>
+            <button class="filter-btn" data-filter="good">Только улучшения</button>
+            <button class="filter-btn" data-filter="bad">Только просадки</button>
+        </div>
+
+        <div class="comparison-grid" id="comparisonGrid">
+            <div class="comparison-head">Показатель</div>
+            <div class="comparison-head">25–31 мая</div>
+            <div class="comparison-head">18–24 мая</div>
+            <div class="comparison-head">Изменение</div>
+
+            <div class="comparison-row" data-status="bad">
+                <div class="comparison-cell metric">Total sales</div>
+                <div class="comparison-cell current">4 817.40 AED</div>
+                <div class="comparison-cell previous">9 941.45 AED</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-bad">-51.5%</span></div>
+            </div>
+
+            <div class="comparison-row" data-status="bad">
+                <div class="comparison-cell metric">Gross sales</div>
+                <div class="comparison-cell current">5 244.75 AED</div>
+                <div class="comparison-cell previous">9 789.00 AED</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-bad">-46.4%</span></div>
+            </div>
+
+            <div class="comparison-row" data-status="bad">
+                <div class="comparison-cell metric">Orders</div>
+                <div class="comparison-cell current">27</div>
+                <div class="comparison-cell previous">37</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-bad">-27.0%</span></div>
+            </div>
+
+            <div class="comparison-row" data-status="bad">
+                <div class="comparison-cell metric">Sessions</div>
+                <div class="comparison-cell current">1 754</div>
+                <div class="comparison-cell previous">1 829</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-bad">-4.1%</span></div>
+            </div>
+
+            <div class="comparison-row" data-status="bad">
+                <div class="comparison-cell metric">Shopify CR</div>
+                <div class="comparison-cell current">1.54%</div>
+                <div class="comparison-cell previous">2.02%</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-bad">-23.8%</span></div>
+            </div>
+
+            <div class="comparison-row" data-status="bad">
+                <div class="comparison-cell metric">AOV</div>
+                <div class="comparison-cell current">178.42 AED</div>
+                <div class="comparison-cell previous">268.69 AED</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-bad">-33.6%</span></div>
+            </div>
+
+            <div class="comparison-row" data-status="good">
+                <div class="comparison-cell metric">Meta spend</div>
+                <div class="comparison-cell current">2 917.50 AED</div>
+                <div class="comparison-cell previous">3 612.58 AED</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-good">-19.2%</span></div>
+            </div>
+
+            <div class="comparison-row" data-status="bad">
+                <div class="comparison-cell metric">Meta attributed purchases</div>
+                <div class="comparison-cell current">21</div>
+                <div class="comparison-cell previous">26</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-bad">-19.2%</span></div>
+            </div>
+
+            <div class="comparison-row" data-status="bad">
+                <div class="comparison-cell metric">Meta attributed revenue</div>
+                <div class="comparison-cell current">3 766.55 AED</div>
+                <div class="comparison-cell previous">4 032.62 AED</div>
+                <div class="comparison-cell change-cell"><span class="change-badge change-bad">-6.6%</span></div>
+            </div>
+
+        <div class="comparison-note">
+            Для Meta spend снижение отмечено зелёным, так как бюджет был оптимизирован вниз. Для revenue, orders, CR, AOV и Blended ROAS рост считается улучшением, снижение — просадкой.
         </div>
     </div>
-</div>
+
 
     <div class="section">
         <h2>Top Products by Total Sales</h2>
@@ -304,7 +418,7 @@
       <th>Meta spend</th>
       <th>Meta purchases</th>
       <th>Meta revenue</th>
-      <th>Meta ROAS</th>
+      <th>Meta performance</th>
       <th>Blended ROAS</th>
     </tr>
   </thead>
@@ -454,7 +568,7 @@
             По атрибуции Meta Ads зафиксировано <strong>21 покупка</strong> и <strong>3 766.55 AED</strong> revenue.
         </p>
         <p>
-            Meta ROAS за неделю составил <strong>1.29</strong>. Кампании продолжали приносить покупки при более контролируемом бюджете, поэтому на следующую неделю фокус остаётся на аккуратной оптимизации: усиливать связки, которые дают продажи, и параллельно работать с офферами, которые помогают поднимать средний чек.
+            Кампании продолжали приносить покупки при более контролируемом бюджете. Основной показатель эффективности для оценки недели — <strong>Blended ROAS</strong>, так как он показывает соотношение общей Shopify-выручки и рекламных расходов. На следующую неделю фокус остаётся на аккуратной оптимизации: усиливать связки, которые дают продажи, и параллельно работать с офферами, которые помогают поднимать средний чек.
         </p>
 
         <h3>Кампании</h3>
@@ -465,7 +579,7 @@
       <th>Spend</th>
       <th>Meta revenue</th>
       <th>Purchases</th>
-      <th>ROAS</th>
+      
       <th>CPA purchase</th>
       <th>Impressions</th>
       <th>Reach</th>
@@ -474,78 +588,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>29.05 | roas goal | partnership</td>
-      <td>1 027.78 AED</td>
-      <td>1 226.50 AED</td>
-      <td>6</td>
-      <td>1.19</td>
-      <td>171.30 AED</td>
-      <td>14051</td>
-      <td>8955</td>
-      <td>275</td>
-      <td>1.96%</td>
-    </tr>
-    <tr>
-      <td>Sales | offer | LAL with catalog+ - CPR GOAL70</td>
-      <td>565.68 AED</td>
-      <td>1 173.60 AED</td>
-      <td>8</td>
-      <td>2.07</td>
-      <td>70.71 AED</td>
-      <td>10897</td>
-      <td>8205</td>
-      <td>184</td>
-      <td>1.69%</td>
-    </tr>
-    <tr>
-      <td>New Sales | 07.05 | A+ - Copy</td>
-      <td>517.68 AED</td>
-      <td>489.00 AED</td>
-      <td>3</td>
-      <td>0.94</td>
-      <td>172.56 AED</td>
-      <td>8725</td>
-      <td>6872</td>
-      <td>190</td>
-      <td>2.18%</td>
-    </tr>
-    <tr>
-      <td>Sales | 08.04 | LAL with catalog+</td>
-      <td>416.42 AED</td>
-      <td>806.45 AED</td>
-      <td>4</td>
-      <td>1.94</td>
-      <td>104.10 AED</td>
-      <td>7355</td>
-      <td>5451</td>
-      <td>149</td>
-      <td>2.03%</td>
-    </tr>
-    <tr>
-      <td>Sales | offer | LAL with catalog+</td>
-      <td>253.63 AED</td>
-      <td>0.00 AED</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>—</td>
-      <td>4623</td>
-      <td>2467</td>
-      <td>48</td>
-      <td>1.04%</td>
-    </tr>
-    <tr>
-      <td>New Sales | 07.05 | A+</td>
-      <td>136.31 AED</td>
-      <td>71.00 AED</td>
-      <td>1</td>
-      <td>0.52</td>
-      <td>136.31 AED</td>
-      <td>2438</td>
-      <td>1822</td>
-      <td>47</td>
-      <td>1.93%</td>
-    </tr>
+    <tr><td>29.05 | roas goal | partnership</td><td>1 027.78 AED</td><td>1 226.50 AED</td><td>6</td><td>171.30 AED</td><td>14051</td><td>8955</td><td>275</td><td>1.96%</td></tr>
+    <tr><td>Sales | offer | LAL with catalog+ - CPR GOAL70</td><td>565.68 AED</td><td>1 173.60 AED</td><td>8</td><td>70.71 AED</td><td>10897</td><td>8205</td><td>184</td><td>1.69%</td></tr>
+    <tr><td>New Sales | 07.05 | A+ - Copy</td><td>517.68 AED</td><td>489.00 AED</td><td>3</td><td>172.56 AED</td><td>8725</td><td>6872</td><td>190</td><td>2.18%</td></tr>
+    <tr><td>Sales | 08.04 | LAL with catalog+</td><td>416.42 AED</td><td>806.45 AED</td><td>4</td><td>104.10 AED</td><td>7355</td><td>5451</td><td>149</td><td>2.03%</td></tr>
+    <tr><td>Sales | offer | LAL with catalog+</td><td>253.63 AED</td><td>0.00 AED</td><td>0</td><td>—</td><td>4623</td><td>2467</td><td>48</td><td>1.04%</td></tr>
+    <tr><td>New Sales | 07.05 | A+</td><td>136.31 AED</td><td>71.00 AED</td><td>1</td><td>136.31 AED</td><td>2438</td><td>1822</td><td>47</td><td>1.93%</td></tr>
   </tbody>
 </table></div>
     </div>
@@ -694,5 +742,19 @@ Plotly.newPlot("productChart", [
     yaxis: {automargin: true}
 }, {responsive: true});
 </script>
+
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.comparison-row').forEach(row => {
+            row.style.display = (filter === 'all' || row.dataset.status === filter) ? 'contents' : 'none';
+        });
+    });
+});
+</script>
+
 </body>
 </html>
