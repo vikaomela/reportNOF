@@ -1,490 +1,271 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nature's Own Factory — marketing report, 10–16 August 2026</title>
-<style>
-:root{
-  --bg:#ffffff;
-  --ink:#14181f;
-  --muted:#5f6b7a;
-  --line:#e4e8ee;
-  --soft:#f6f8fa;
-  --brand:#1f6f4a;
-  --brand-soft:#eaf4ee;
-  --up:#177245;
-  --down:#b3261e;
-  --warn:#8a5a00;
-  --warn-soft:#fff6e5;
-  --radius:14px;
-  color-scheme:light;
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  background:var(--bg);
-  color:var(--ink);
-  font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  -webkit-font-smoothing:antialiased;
-}
-a{color:var(--brand);text-decoration:none}
-a:hover{text-decoration:underline}
-
-.topbar{
-  border-bottom:1px solid var(--line);
-  background:var(--bg);
-  position:sticky;top:0;z-index:20;
-}
-.topbar .in{
-  max-width:1080px;margin:0 auto;padding:12px 20px;
-  display:flex;gap:14px;align-items:center;flex-wrap:wrap;
-  font-size:14px;
-}
-.topbar a{color:var(--muted);font-weight:500}
-.topbar a:hover{color:var(--brand)}
-
-.wrap{max-width:1080px;margin:0 auto;padding:36px 20px 72px}
-
-.eyebrow{
-  display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--brand);background:var(--brand-soft);
-  padding:5px 11px;border-radius:999px;font-weight:650;
-}
-.brandline{margin:18px 0 6px;font-size:13px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;font-weight:600}
-h1{font-size:clamp(28px,5vw,40px);line-height:1.18;margin:0 0 12px;letter-spacing:-.02em}
-.sub{color:var(--muted);font-size:15px;margin:0 0 8px}
-
-.status{
-  display:inline-flex;align-items:center;gap:8px;margin-top:14px;
-  background:var(--warn-soft);border:1px solid #f0dcae;color:var(--warn);
-  padding:9px 14px;border-radius:10px;font-size:14px;font-weight:600;
-}
-
-h2{font-size:22px;margin:52px 0 8px;letter-spacing:-.01em}
-h3{font-size:17px;margin:30px 0 8px}
-.lead{color:var(--muted);margin:0 0 18px;font-size:15px}
-p{margin:0 0 14px}
-
-.grid{
-  display:grid;gap:12px;margin:26px 0 8px;
-  grid-template-columns:repeat(auto-fill,minmax(215px,1fr));
-}
-.card{
-  border:1px solid var(--line);border-radius:var(--radius);
-  padding:16px 17px;background:var(--bg);
-}
-.card .k{font-size:13px;color:var(--muted);font-weight:600}
-.card .v{font-size:25px;font-weight:700;margin:7px 0 4px;letter-spacing:-.02em}
-.card .d{font-size:13px;color:var(--muted);line-height:1.45}
-.up{color:var(--up);font-weight:650}
-.down{color:var(--down);font-weight:650}
-.flat{color:var(--muted);font-weight:650}
-
-.tw{overflow-x:auto;margin:14px 0 6px;border:1px solid var(--line);border-radius:var(--radius)}
-table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px}
-th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
-th{background:var(--soft);font-weight:650;font-size:13px;color:var(--muted)}
-tbody tr:last-child td{border-bottom:none}
-td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
-tr.total td{font-weight:700;background:var(--soft)}
-
-.note{
-  border-left:3px solid var(--line);padding:2px 0 2px 15px;
-  color:var(--muted);font-size:14px;margin:16px 0;
-}
-.callout{
-  background:var(--soft);border:1px solid var(--line);border-radius:var(--radius);
-  padding:18px 20px;margin:20px 0;
-}
-.callout h3{margin-top:0}
-
-ul{margin:0 0 16px;padding-left:20px}
-li{margin-bottom:11px}
-
-.actions{counter-reset:a;list-style:none;padding:0;margin:18px 0 0}
-.actions>li{
-  counter-increment:a;position:relative;
-  border:1px solid var(--line);border-radius:var(--radius);
-  padding:18px 20px 18px 58px;margin-bottom:12px;
-}
-.actions>li::before{
-  content:counter(a);position:absolute;left:18px;top:18px;
-  width:26px;height:26px;border-radius:50%;
-  background:var(--brand-soft);color:var(--brand);
-  font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;
-}
-.actions .t{font-weight:700;margin-bottom:7px}
-.actions .m{font-size:14px;color:var(--muted);margin:5px 0}
-.actions .m b{color:var(--ink);font-weight:650}
-
-footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-
-@media (max-width:640px){
-  .wrap{padding:26px 16px 56px}
-  .card .v{font-size:22px}
-  th,td{padding:10px 12px}
-}
-</style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Nature’s Own Factory — marketing report, 10–16 August 2026</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:#f7f7f5;color:#1f2933;line-height:1.45}
+    .container{max-width:1120px;margin:0 auto;padding:32px 20px 64px}
+    .hero,.section{background:#fff;border-radius:22px;padding:28px;box-shadow:0 8px 28px rgba(0,0,0,.06);margin-bottom:22px}
+    .section{padding:24px}
+    h1{margin:0 0 8px;font-size:34px;letter-spacing:-.03em}
+    h2{margin:34px 0 14px;font-size:24px}
+    h3{margin:22px 0 8px;font-size:18px}
+    .muted{color:#67707b;font-size:14px}
+    .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:18px 0 0}
+    .card{background:#fff;border-radius:18px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.05);border:1px solid #edf0f2}
+    .label{color:#67707b;font-size:13px;margin-bottom:6px}
+    .value{font-size:25px;font-weight:750;letter-spacing:-.02em}
+    .delta{margin-top:6px;color:#67707b;font-size:13px}
+    .chart{width:100%;height:430px}
+    .note{border-left:4px solid #b59b5b;background:#fffaf0;padding:12px 14px;border-radius:12px;margin:14px 0}
+    ul{padding-left:22px}
+    li{margin:7px 0}
+    .data-table{border-collapse:collapse;width:100%;font-size:13px;margin-top:12px}
+    .data-table th{text-align:left;background:#f0f2f4;padding:10px;position:sticky;top:0}
+    .data-table td{padding:9px 10px;border-bottom:1px solid #edf0f2;vertical-align:top}
+    .table-wrap{overflow-x:auto;max-height:560px;border:1px solid #edf0f2;border-radius:14px}
+    .pill{display:inline-block;padding:5px 10px;border-radius:999px;background:#eef2f6;font-size:13px;margin-right:6px;margin-top:6px}
+    .comparison-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr .9fr;gap:10px;margin-top:16px}
+    .comparison-head{color:#67707b;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:0 10px 4px}
+    .comparison-row{display:contents}
+    .comparison-cell{background:#fbfbfa;border:1px solid #edf0f2;padding:13px 14px;font-size:14px;display:flex;align-items:center;min-height:48px}
+    .comparison-cell.metric{border-radius:14px 0 0 14px;font-weight:650}
+    .comparison-cell.current{font-weight:700}
+    .comparison-cell.change-cell{border-radius:0 14px 14px 0;justify-content:flex-end}
+    .change-badge{display:inline-flex;align-items:center;justify-content:center;min-width:72px;padding:6px 10px;border-radius:999px;font-weight:800;font-size:13px}
+    .change-good{background:#e7f6ec;color:#137333;border:1px solid #bfe6ca}
+    .change-bad{background:#fdeaea;color:#b42318;border:1px solid #f5c2c2}
+    .change-neutral{background:#eef2f6;color:#67707b;border:1px solid #d9e0e7}
+    .nof-repo-nav{position:sticky;top:0;z-index:999999;display:flex;align-items:center;gap:10px;width:100%;padding:11px 16px;color:#fffaf4;background:rgba(31,35,40,.96);border-bottom:1px solid rgba(255,255,255,.12);box-shadow:0 8px 25px rgba(0,0,0,.14);backdrop-filter:blur(12px);box-sizing:border-box}
+    .nof-repo-nav a{display:inline-flex;align-items:center;min-height:36px;padding:8px 12px;color:#fffaf4;text-decoration:none;border:1px solid rgba(255,255,255,.18);border-radius:999px;font-size:13px;font-weight:700;white-space:nowrap;box-sizing:border-box}
+    .nof-repo-nav a:hover{background:rgba(255,255,255,.10)}
+    .nof-repo-nav .nof-home{background:#e9753d;border-color:#e9753d}
+    .nof-repo-nav select{min-height:36px;max-width:290px;padding:8px 34px 8px 12px;color:#fffaf4;background:#2f343a;border:1px solid rgba(255,255,255,.18);border-radius:999px;font:inherit;font-size:13px}
+    .nof-repo-nav .nof-current{min-width:0;margin-left:auto;overflow:hidden;color:rgba(255,250,244,.72);font-size:12px;text-overflow:ellipsis;white-space:nowrap}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}h1{font-size:28px}}
+    @media(max-width:760px){
+      .comparison-grid{grid-template-columns:1fr}
+      .comparison-head{display:none}
+      .comparison-row{display:grid;grid-template-columns:1fr;gap:0;margin-bottom:12px;border:1px solid #edf0f2;border-radius:16px;overflow:hidden;background:#fbfbfa}
+      .comparison-cell{border:0;border-bottom:1px solid #edf0f2;justify-content:space-between}
+      .comparison-cell.metric,.comparison-cell.change-cell{border-radius:0}
+      .comparison-cell.current::before{content:"10–16 августа";color:#67707b;font-weight:500}
+      .comparison-cell.previous::before{content:"3–9 августа";color:#67707b}
+      .comparison-cell.change-cell::before{content:"Изменение";color:#67707b}
+      .nof-repo-nav{flex-wrap:wrap;padding:9px 10px}
+      .nof-repo-nav select{max-width:calc(100vw - 130px)}
+      .nof-repo-nav .nof-current{width:100%;margin-left:0}
+    }
+    @media(max-width:560px){.grid{grid-template-columns:1fr}.hero,.section{padding:18px;border-radius:18px}.chart{height:380px}}
+  </style>
 </head>
 <body>
+  <nav aria-label="Навигация по отчётам" class="nof-repo-nav">
+    <a class="nof-home" href="../">Все отчёты</a>
+    <a class="nof-prev" href="../weekly-2026-08-03-09/">← Ранее</a>
+    <select aria-label="Выбрать отчёт" onchange="if(this.value) window.location.href=this.value">
+      <optgroup label="Еженедельные отчёты">
+        <option value="../weekly-2026-08-10-16/" selected>10–16 августа 2026</option>
+        <option value="../weekly-2026-08-03-09/">3–9 августа 2026</option>
+        <option value="../weekly-2026-07-20-26/">20–26 июля 2026</option>
+        <option value="../weekly-2026-07-13-19/">13–19 июля 2026</option>
+        <option value="../weekly-2026-07-01-14/">1–14 июля 2026</option>
+        <option value="../weekly-2026-06-08-14/">8–14 июня 2026</option>
+        <option value="../weekly-2026-06-01-07/">1–7 июня 2026</option>
+        <option value="../weekly-2026-05-25-31/">25–31 мая 2026</option>
+        <option value="../weekly-2026-05-18-24/">18–24 мая 2026</option>
+        <option value="../weekly-2026-05-11-17/">11–17 мая 2026</option>
+        <option value="../weekly-2026-05-04-10/">4–10 мая 2026</option>
+      </optgroup>
+      <optgroup label="Месячные отчёты">
+        <option value="../monthly-2026-05/">Май 2026</option>
+        <option value="../monthly-2026-06/">Июнь 2026</option>
+      </optgroup>
+    </select>
+    <span class="nof-current">Отчёт · 10–16 августа 2026</span>
+  </nav>
 
-<div class="topbar">
-  <div class="in">
-    <a href="../">Все отчёты</a>
-    <a href="../weekly-2026-08-03-09/">← Ранее</a>
-  </div>
-</div>
+  <div class="container">
+    <section class="hero">
+      <div class="muted">Nature’s Own Factory · Weekly Marketing Report</div>
+      <h1>Отчёт за 10–16 августа 2026</h1>
+      <div class="muted">Валюта: AED · Часовой пояс магазина: +04 · Сравнение: 3–9 августа 2026</div>
+      <div class="grid">
+        <div class="card"><div class="label">Total sales</div><div class="value">3 790.00 AED</div><div class="delta">vs 3–9 Aug: ↓ -16.0%</div></div>
+        <div class="card"><div class="label">Gross sales</div><div class="value">4 382.00 AED</div><div class="delta">vs 3–9 Aug: ↓ -13.0%</div></div>
+        <div class="card"><div class="label">Заказы</div><div class="value">21</div><div class="delta">vs 3–9 Aug: ↑ +50.0%</div></div>
+        <div class="card"><div class="label">AOV</div><div class="value">180.48 AED</div><div class="delta">vs 3–9 Aug: ↓ -44.0%</div></div>
+        <div class="card"><div class="label">Shopify CR</div><div class="value">1.19%</div><div class="delta">vs 3–9 Aug: ↑ +0.68 п.п.</div></div>
+        <div class="card"><div class="label">Meta spend</div><div class="value">1 198.21 AED</div><div class="delta">13 purchases · CPA 92.17 AED</div></div>
+        <div class="card"><div class="label">Blended ROAS / MER</div><div class="value">3.16x</div><div class="delta">Shopify total sales / Meta spend</div></div>
+        <div class="card"><div class="label">Sessions</div><div class="value">1 685</div><div class="delta">vs 3–9 Aug: ↓ -38.5%</div></div>
+        <div class="card"><div class="label">Meta purchases</div><div class="value">13</div><div class="delta">vs 8: ↑ +62.5%</div></div>
+        <div class="card"><div class="label">Returning customer rate</div><div class="value">50.00%</div><div class="delta">vs 38.46%: ↑ +11.54 п.п.</div></div>
+      </div>
+    </section>
 
-<div class="wrap">
+    <section class="section">
+      <h2>Executive summary</h2>
+      <p>За период <strong>10–16 августа</strong> магазин получил <strong>3 790.00 AED</strong> total sales и <strong>21</strong> заказ: по сравнению с предыдущей неделей продажи снизились на <strong>16.0%</strong>, при этом количество заказов выросло на <strong>50.0%</strong>.</p>
+      <p>Gross sales составили <strong>4 382.00 AED</strong>, а на итоговый результат повлияли отмены на <strong>867 AED</strong>; вместе с ростом доли более доступных позиций это снизило AOV с <strong>322.11 AED</strong> до <strong>180.48 AED</strong>.</p>
+      <p>Shopify CR вырос с <strong>0.51%</strong> до <strong>1.19%</strong>, а сессии из ОАЭ — с <strong>337</strong> до <strong>517</strong>, поэтому снижение общего объёма sessions не выглядит как снижение целевого спроса.</p>
+      <p>Meta spend составил <strong>1 198.21 AED</strong>, Meta зафиксировала <strong>13</strong> покупок при CPA <strong>92.17 AED</strong>, а blended ROAS / MER составил <strong>3.16x</strong>.</p>
+      <p>Returning customer rate вырос до <strong>50.00%</strong>, поэтому следующий фокус — удержать работающие кампании, поддержать продукты с высоким чеком и сократить влияние отмен на итоговую выручку.</p>
+    </section>
 
-  <span class="eyebrow">Отчёт · 10–16 августа 2026</span>
-  <div class="brandline">Nature's Own Factory · Weekly Marketing Report</div>
-  <h1>Отчёт за 10–16 августа 2026</h1>
-  <p class="sub">Валюта: AED · Часовой пояс магазина и рекламного аккаунта: +04 (Dubai) · Сравнение: 3–9 августа 2026 и медиана предыдущих четырёх недель (13 июля – 9 августа)</p>
-  <p class="sub">Источники: прямой коннектор Shopify · Meta Ads Manager (чтение). Атрибуция Meta: 7-day click + 1-day view, «All conversions».</p>
+    <section class="section">
+      <h2>Сравнение с предыдущей неделей</h2>
+      <p>Сопоставляем ключевые Shopify- и Meta-показатели за 10–16 августа с периодом 3–9 августа 2026.</p>
+      <div class="comparison-grid">
+        <div class="comparison-head">Показатель</div><div class="comparison-head">10–16 августа</div><div class="comparison-head">3–9 августа</div><div class="comparison-head">Изменение</div>
 
-  <!-- KPI -->
-  <div class="grid">
-    <div class="card">
-      <div class="k">Total sales</div>
-      <div class="v">3 790.00 AED</div>
-      <div class="d">vs 3–9 авг: <span class="down">↓ −16.0%</span><br>vs медиана 4 недель: <span class="down">↓ −34.6%</span></div>
-    </div>
-    <div class="card">
-      <div class="k">Gross sales</div>
-      <div class="v">4 382.00 AED</div>
-      <div class="d">vs 3–9 авг: <span class="down">↓ −13.0%</span><br>Отмены: −867 AED</div>
-    </div>
-    <div class="card">
-      <div class="k">Заказы</div>
-      <div class="v">21</div>
-      <div class="d">vs 3–9 авг: <span class="up">↑ +50.0%</span><br>vs медиана 4 недель: <span class="down">↓ −19.2%</span></div>
-    </div>
-    <div class="card">
-      <div class="k">AOV</div>
-      <div class="v">180.48 AED</div>
-      <div class="d">vs 3–9 авг: <span class="down">↓ −44.0%</span><br>Total sales / заказы</div>
-    </div>
-    <div class="card">
-      <div class="k">Shopify CR</div>
-      <div class="v">1.19%</div>
-      <div class="d">vs 3–9 авг: <span class="up">↑ +0.68 п.п.</span><br>По трафику ОАЭ: 4.06%</div>
-    </div>
-    <div class="card">
-      <div class="k">Sessions</div>
-      <div class="v">1 685</div>
-      <div class="d">vs 3–9 авг: <span class="down">↓ −38.5%</span><br>Из них ОАЭ: 517 (30.7%)</div>
-    </div>
-    <div class="card">
-      <div class="k">Meta spend</div>
-      <div class="v">1 198.21 AED</div>
-      <div class="d">vs 3–9 авг: <span class="up">↑ +87.4%</span><br>vs медиана 4 недель: <span class="down">↓ −44.7%</span></div>
-    </div>
-    <div class="card">
-      <div class="k">Meta purchases</div>
-      <div class="v">13</div>
-      <div class="d">Account-level CPA: 92.17 AED<br>vs 3–9 авг: <span class="up">↑ +62.5%</span></div>
-    </div>
-    <div class="card">
-      <div class="k">Blended ROAS / MER</div>
-      <div class="v">3.16x</div>
-      <div class="d">Shopify total sales / Meta spend<br>предыдущая неделя: 7.05x</div>
-    </div>
-    <div class="card">
-      <div class="k">Returning customer rate</div>
-      <div class="v">50.00%</div>
-      <div class="d">vs 38.46%: <span class="up">↑ +11.54 п.п.</span><br>Новых клиентов: 10</div>
-    </div>
-  </div>
+        <div class="comparison-row"><div class="comparison-cell metric">Total sales</div><div class="comparison-cell current">3 790.00 AED</div><div class="comparison-cell previous">4 509.50 AED</div><div class="comparison-cell change-cell"><span class="change-badge change-bad">↓ -16.0%</span></div></div>
+        <div class="comparison-row"><div class="comparison-cell metric">Gross sales</div><div class="comparison-cell current">4 382.00 AED</div><div class="comparison-cell previous">5 038.50 AED</div><div class="comparison-cell change-cell"><span class="change-badge change-bad">↓ -13.0%</span></div></div>
+        <div class="comparison-row"><div class="comparison-cell metric">Orders</div><div class="comparison-cell current">21</div><div class="comparison-cell previous">14</div><div class="comparison-cell change-cell"><span class="change-badge change-good">↑ +50.0%</span></div></div>
+        <div class="comparison-row"><div class="comparison-cell metric">Sessions</div><div class="comparison-cell current">1 685</div><div class="comparison-cell previous">2 740</div><div class="comparison-cell change-cell"><span class="change-badge change-bad">↓ -38.5%</span></div></div>
+        <div class="comparison-row"><div class="comparison-cell metric">Shopify CR</div><div class="comparison-cell current">1.19%</div><div class="comparison-cell previous">0.51%</div><div class="comparison-cell change-cell"><span class="change-badge change-good">↑ +0.68 п.п.</span></div></div>
+        <div class="comparison-row"><div class="comparison-cell metric">AOV</div><div class="comparison-cell current">180.48 AED</div><div class="comparison-cell previous">322.11 AED</div><div class="comparison-cell change-cell"><span class="change-badge change-bad">↓ -44.0%</span></div></div>
+        <div class="comparison-row"><div class="comparison-cell metric">Returning customer rate</div><div class="comparison-cell current">50.00%</div><div class="comparison-cell previous">38.46%</div><div class="comparison-cell change-cell"><span class="change-badge change-good">↑ +11.54 п.п.</span></div></div>
+        <div class="comparison-row"><div class="comparison-cell metric">Meta spend</div><div class="comparison-cell current">1 198.21 AED</div><div class="comparison-cell previous">639.29 AED</div><div class="comparison-cell change-cell"><span class="change-badge change-good">↑ +87.4%</span></div></div>
+        <div class="comparison-row"><div class="comparison-cell metric">Blended ROAS / MER</div><div class="comparison-cell current">3.16x</div><div class="comparison-cell previous">7.05x</div><div class="comparison-cell change-cell"><span class="change-badge change-bad">↓ -55.2%</span></div></div>
+      </div>
+    </section>
 
-  <div class="status">Статус отчёта: Complete · Shopify и Meta прочитаны полностью</div>
+    <section class="section">
+      <h2>Shopify performance</h2>
+      <div id="salesChart" class="chart"></div>
+      <div id="sessionsChart" class="chart"></div>
 
-  <!-- EXEC SUMMARY -->
-  <h2>Executive summary</h2>
+      <h3>Daily performance</h3>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Day</th><th>Orders</th><th>Gross sales</th><th>Total sales</th><th>Sessions</th><th>CR</th><th>Cart additions</th><th>Reached checkout</th></tr></thead>
+          <tbody>
+            <tr><td>2026-08-10</td><td>3</td><td>673.50 AED</td><td>698.50 AED</td><td>195</td><td>1.54%</td><td>8</td><td>7</td></tr>
+            <tr><td>2026-08-11</td><td>0</td><td>0.00 AED</td><td>-163.00 AED</td><td>325</td><td>0.00%</td><td>7</td><td>1</td></tr>
+            <tr><td>2026-08-12</td><td>5</td><td>874.50 AED</td><td>974.50 AED</td><td>250</td><td>2.00%</td><td>25</td><td>18</td></tr>
+            <tr><td>2026-08-13</td><td>3</td><td>402.00 AED</td><td>-277.00 AED</td><td>207</td><td>1.45%</td><td>11</td><td>9</td></tr>
+            <tr><td>2026-08-14</td><td>1</td><td>67.00 AED</td><td>92.00 AED</td><td>171</td><td>0.58%</td><td>8</td><td>5</td></tr>
+            <tr><td>2026-08-15</td><td>1</td><td>598.00 AED</td><td>598.00 AED</td><td>187</td><td>0.53%</td><td>7</td><td>5</td></tr>
+            <tr><td>2026-08-16</td><td>8</td><td>1 767.00 AED</td><td>1 867.00 AED</td><td>350</td><td>2.00%</td><td>18</td><td>11</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Отрицательный total sales 11 и 13 августа связан с отменами заказов, оформленных ранее. Общие sessions и CR сейчас искажены нецелевым трафиком; по трафику ОАЭ conversion rate остался стабильным — 4.06% против 4.15% неделей ранее.</p>
+    </section>
 
-  <p>За период <b>10–16 августа</b> магазин получил <b>3 790.00 AED</b> total sales и <b>21</b> заказ. Количество заказов выросло на <b>50%</b> к предыдущей неделе, но total sales снизился на <b>16%</b>. Причина расхождения — не спрос, а два отменённых заказа на <b>867 AED</b> и изменение структуры корзины.</p>
+    <section class="section">
+      <h2>Meta Ads performance</h2>
+      <p>За неделю Meta spend составил <strong>1 198.21 AED</strong>. Кампании получили <strong>19 760</strong> показов и <strong>13</strong> покупок по данным Meta, account-level CPA — <strong>92.17 AED</strong>.</p>
+      <div>
+        <span class="pill">Reach: 9 160</span>
+        <span class="pill">Frequency: 2.16</span>
+        <span class="pill">CPM: 60.64 AED</span>
+        <span class="pill">CTR: 1.20%</span>
+        <span class="pill">CPC: 5.06 AED</span>
+      </div>
 
-  <p>Отмены — главное финансовое событие недели. Они составили <b>19.8% от gross sales</b> против 11.0% неделей ранее и 4.1% в среднем по предыдущим четырём неделям. Оба заказа были отменены покупателями и не были оплачены (статус VOIDED): заказ на <b>729 AED</b> (три позиции упаковок х18) пролежал 5 дней, заказ на <b>163 AED</b> — 21 день с момента оформления до отмены. Дополнительно на конец недели ещё <b>4 заказа на 792 AED</b> оставались в статусе ожидания оплаты.</p>
+      <h3>Campaign breakdown</h3>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Campaign</th><th>Status</th><th>Spend</th><th>Purchases</th><th>CPA</th><th>ROAS</th></tr></thead>
+          <tbody>
+            <tr><td>Sales | 15.08 | Partners NEW | ROAS</td><td>active</td><td>202.34 AED</td><td>5</td><td>40.47 AED</td><td>4.77</td></tr>
+            <tr><td>Sales | 15.08 | LT budget | Roas</td><td>active</td><td>68.94 AED</td><td>1</td><td>68.94 AED</td><td>6.51</td></tr>
+            <tr><td>Sales | 67 | LAL with catalog+</td><td>active</td><td>393.00 AED</td><td>5</td><td>78.60 AED</td><td>2.24</td></tr>
+            <tr><td>Sales | 11.08 | Undertested winners | cost cap 70</td><td>off</td><td>294.56 AED</td><td>1</td><td>294.56 AED</td><td>0.37</td></tr>
+            <tr><td>Sales | 08.04 | LAL with catalog+ - Copy 2</td><td>off</td><td>239.37 AED</td><td>1</td><td>239.37 AED</td><td>0.37</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>533.93 AED</strong>, или <strong>44.6%</strong> недельного бюджета, пришлось на две кампании с ROAS 0.37, которые уже остановлены. Три активные кампании дали <strong>11</strong> покупок при среднем CPA <strong>60.39 AED</strong> и ROAS <strong>3.45</strong>.</p>
+      <p class="muted">Новые кампании от 15 августа показывают сильный старт, но пока имеют только два дня данных.</p>
+    </section>
 
-  <p>Средний чек снизился с <b>322.11 AED</b> до <b>180.48 AED</b>. Снижение почти полностью объясняется теми же отменами: крупные упаковки х18 и х24 по 243–270 AED формируют высокий чек, и отмена одного такого заказа убирает сразу около 730 AED. Батончики по 46–138 AED дали объём заказов, но не чек.</p>
+    <section class="section">
+      <h2>Top products</h2>
+      <div id="productsChart" class="chart"></div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Product</th><th>Gross sales</th><th>Net sales</th><th>Orders</th></tr></thead>
+          <tbody>
+            <tr><td>Dubai Chocolate</td><td>921.00 AED</td><td>921.00 AED</td><td>10</td></tr>
+            <tr><td>Chocolate Bar with Popping Candy &amp; Crunchy Crispies</td><td>828.00 AED</td><td>782.00 AED</td><td>8</td></tr>
+            <tr><td>Chocolate Bar with Cotton Candy &amp; Crunchy Crispies</td><td>690.00 AED</td><td>644.00 AED</td><td>9</td></tr>
+            <tr><td>Milk Chocolate Bar with Crunchy Crispies</td><td>322.00 AED</td><td>276.00 AED</td><td>5</td></tr>
+            <tr><td>Chocolate with Matcha x24 Packs</td><td>270.00 AED</td><td>270.00 AED</td><td>1</td></tr>
+            <tr><td>Prebiotic Chocolate with Peanuts x 24 packs</td><td>270.00 AED</td><td>270.00 AED</td><td>1</td></tr>
+            <tr><td>Milk Chocolate x 24 packs</td><td>270.00 AED</td><td>270.00 AED</td><td>1</td></tr>
+            <tr><td>Chocolate Covered Dates With Himalayan Pink Salt x 18 Packs</td><td>243.00 AED</td><td>0.00 AED</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-  <p>Sessions снизились на 38.5%, а Shopify CR вырос с 0.51% до 1.19%. Оба показателя сейчас сильно искажены нецелевым трафиком: доля ОАЭ в сессиях составила лишь <b>30.7%</b>, тогда как на США пришлось 40.9%, а неделей ранее 56.2% сессий приходилось на Сингапур. Если считать конверсию только по трафику ОАЭ, она стабильна: <b>4.06%</b> против 4.15% неделей ранее. При этом сессии из ОАЭ выросли с 337 до 517, то есть реальный целевой трафик вырос на 53%.</p>
-
-  <p>Meta spend составил <b>1 198.21 AED</b>, зафиксировано <b>13</b> покупок, account-level CPA — <b>92.17 AED</b>. Эффективность показа стабильна: CTR 1.20% против 1.18%, CPC 5.06 AED против 4.96 AED, CPM 60.64 AED против 58.43 AED. Изменилась структура аккаунта: <b>45% недельного бюджета (533.93 AED)</b> ушло в две кампании с ROAS 0.37, которые были остановлены в течение недели, а 15 августа запущены две новые кампании. Три активные кампании отработали со средним ROAS <b>3.45</b> и CPA 60.39 AED.</p>
-
-  <p>Returning customer rate вырос до <b>50.0%</b> при медиане предыдущих четырёх недель 29.4%. Половину заказов дала существующая база. Новых клиентов — 10 при медиане 18. Это согласуется с тем, что рекламный бюджет недели на 45% ниже собственной медианы за четыре недели.</p>
-
-  <p>Запасов достаточно: остаток по топ-15 SKU — около 53 700 единиц, недельная оборачиваемость по большинству позиций ниже 1%. Дефицит товара не был ограничением ни для одной позиции.</p>
-
-  <!-- COMPARISON -->
-  <h2>Сравнение с предыдущей неделей и медианой четырёх недель</h2>
-  <p class="lead">Медиана рассчитана по четырём завершённым неделям: 13–19 июля, 20–26 июля, 27 июля – 2 августа, 3–9 августа.</p>
-
-  <div class="tw">
-    <table>
-      <thead>
-        <tr>
-          <th>Показатель</th>
-          <th class="num">10–16 авг</th>
-          <th class="num">3–9 авг</th>
-          <th class="num">Изменение</th>
-          <th class="num">Медиана 4 нед.</th>
-          <th class="num">К медиане</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Total sales</td><td class="num">3 790.00 AED</td><td class="num">4 509.50 AED</td><td class="num down">↓ −16.0%</td><td class="num">5 793.08 AED</td><td class="num down">↓ −34.6%</td></tr>
-        <tr><td>Gross sales</td><td class="num">4 382.00 AED</td><td class="num">5 038.50 AED</td><td class="num down">↓ −13.0%</td><td class="num">5 872.38 AED</td><td class="num down">↓ −25.4%</td></tr>
-        <tr><td>Отмены и возвраты</td><td class="num">−867.00 AED</td><td class="num">−552.00 AED</td><td class="num down">↑ +57.1%</td><td class="num">−207.00 AED</td><td class="num down">↑ +318.8%</td></tr>
-        <tr><td>Net sales</td><td class="num">3 515.00 AED</td><td class="num">4 359.50 AED</td><td class="num down">↓ −19.4%</td><td class="num">—</td><td class="num">—</td></tr>
-        <tr><td>Orders</td><td class="num">21</td><td class="num">14</td><td class="num up">↑ +50.0%</td><td class="num">26</td><td class="num down">↓ −19.2%</td></tr>
-        <tr><td>AOV</td><td class="num">180.48 AED</td><td class="num">322.11 AED</td><td class="num down">↓ −44.0%</td><td class="num">255.84 AED</td><td class="num down">↓ −29.5%</td></tr>
-        <tr><td>Sessions (все)</td><td class="num">1 685</td><td class="num">2 740</td><td class="num down">↓ −38.5%</td><td class="num">1 932.5</td><td class="num down">↓ −12.8%</td></tr>
-        <tr><td>Sessions (ОАЭ)</td><td class="num">517</td><td class="num">337</td><td class="num up">↑ +53.4%</td><td class="num">—</td><td class="num">—</td></tr>
-        <tr><td>Shopify CR (все)</td><td class="num">1.19%</td><td class="num">0.51%</td><td class="num up">↑ +0.68 п.п.</td><td class="num">1.32%</td><td class="num down">↓ −0.13 п.п.</td></tr>
-        <tr><td>CR по трафику ОАЭ</td><td class="num">4.06%</td><td class="num">4.15%</td><td class="num flat">→ −0.09 п.п.</td><td class="num">—</td><td class="num">—</td></tr>
-        <tr><td>Returning customer rate</td><td class="num">50.00%</td><td class="num">38.46%</td><td class="num up">↑ +11.54 п.п.</td><td class="num">29.40%</td><td class="num up">↑ +20.60 п.п.</td></tr>
-        <tr><td>Meta spend</td><td class="num">1 198.21 AED</td><td class="num">639.48 AED</td><td class="num up">↑ +87.4%</td><td class="num">2 166.63 AED</td><td class="num down">↓ −44.7%</td></tr>
-        <tr><td>Meta purchases</td><td class="num">13</td><td class="num">8</td><td class="num up">↑ +62.5%</td><td class="num">20.5</td><td class="num down">↓ −36.6%</td></tr>
-        <tr><td>Meta CPA</td><td class="num">92.17 AED</td><td class="num">79.94 AED</td><td class="num down">↑ +15.3%</td><td class="num">—</td><td class="num">—</td></tr>
-        <tr><td>Blended ROAS / MER</td><td class="num">3.16x</td><td class="num">7.05x</td><td class="num down">↓ −55.2%</td><td class="num">—</td><td class="num">—</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- TRAFFIC QUALITY -->
-  <h2>Качество трафика</h2>
-  <p class="lead">Показатель sessions и общий conversion rate в этом периоде не отражают реальный спрос — их формирует нецелевой трафик.</p>
-
-  <div class="tw">
-    <table>
-      <thead>
-        <tr><th>Страна сессии</th><th class="num">10–16 авг</th><th class="num">Доля</th><th class="num">3–9 авг</th><th class="num">Доля</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>США</td><td class="num">689</td><td class="num">40.9%</td><td class="num">426</td><td class="num">15.5%</td></tr>
-        <tr><td>ОАЭ</td><td class="num">517</td><td class="num">30.7%</td><td class="num">337</td><td class="num">12.3%</td></tr>
-        <tr><td>Сингапур</td><td class="num">50</td><td class="num">3.0%</td><td class="num">1 541</td><td class="num">56.2%</td></tr>
-        <tr><td>Малайзия</td><td class="num">62</td><td class="num">3.7%</td><td class="num">46</td><td class="num">1.7%</td></tr>
-        <tr><td>Индия</td><td class="num">57</td><td class="num">3.4%</td><td class="num">67</td><td class="num">2.4%</td></tr>
-        <tr><td>Прочие</td><td class="num">310</td><td class="num">18.4%</td><td class="num">323</td><td class="num">11.8%</td></tr>
-        <tr class="total"><td>Всего</td><td class="num">1 685</td><td class="num">100%</td><td class="num">2 740</td><td class="num">100%</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3>Разрез по устройству и источнику</h3>
-  <div class="tw">
-    <table>
-      <thead><tr><th>Разрез</th><th class="num">Sessions</th><th class="num">CR</th></tr></thead>
-      <tbody>
-        <tr><td>Mobile</td><td class="num">966</td><td class="num">1.97%</td></tr>
-        <tr><td>Desktop</td><td class="num">713</td><td class="num">0.14%</td></tr>
-        <tr><td>Tablet</td><td class="num">6</td><td class="num">0.00%</td></tr>
-        <tr><td>Direct</td><td class="num">1 002</td><td class="num">0.70%</td></tr>
-        <tr><td>Social</td><td class="num">460</td><td class="num">1.74%</td></tr>
-        <tr><td>Search</td><td class="num">210</td><td class="num">1.43%</td></tr>
-      </tbody>
-    </table>
+    <section class="section">
+      <h2>Выводы и next steps</h2>
+      <ul>
+        <li>Заказов стало больше на 50%, но total sales снизился на 16% из-за отмен и более низкого среднего чека. Поэтому приоритет — не только объём заказов, но и качество выручки.</li>
+        <li>Returning customer rate вырос до 50%. Повторные клиенты поддержали половину заказов недели, поэтому сохраняем коммуникацию с существующей базой.</li>
+        <li>Три активные Meta-кампании работают заметно эффективнее остановленных: средний CPA активных кампаний — 60.39 AED, ROAS — 3.45. Бюджет концентрируем на них и масштабируем постепенно.</li>
+        <li>Dubai Chocolate и три лидирующих батончика сформировали 2 761 AED gross sales, или 63% недельного объёма. Сохраняем эти продукты в центре рекламных сообщений.</li>
+        <li>Отмены на 867 AED снизили AOV и итоговую выручку. На следующей неделе отдельно контролируем неоплаченные заказы и сроки их обработки.</li>
+      </ul>
+    </section>
   </div>
 
-  <div class="callout">
-    <h3>Что это означает</h3>
-    <p>Все 21 заказ недели оформлены с адресом в ОАЭ. При этом почти 70% сессий приходит из стран, куда магазин не продаёт. Desktop даёт 713 сессий при конверсии 0.14%, mobile — 966 сессий при 1.97%. Это типичная сигнатура нецелевого или автоматизированного трафика.</p>
-    <p style="margin-bottom:0">Практический вывод: считать общий conversion rate как KPI сейчас нельзя — он будет колебаться вслед за объёмом мусорного трафика, а не за качеством сайта. В следующих отчётах предлагаем вести отдельный показатель «CR по трафику ОАЭ» как основной. По нему картина за две недели стабильна: 4.15% → 4.06%.</p>
-  </div>
+  <script>
+    const salesData={
+      dates:["2026-08-10","2026-08-11","2026-08-12","2026-08-13","2026-08-14","2026-08-15","2026-08-16"],
+      total:[698.5,-163,974.5,-277,92,598,1867],
+      orders:[3,0,5,3,1,1,8]
+    };
+    Plotly.newPlot("salesChart",[
+      {x:salesData.dates,y:salesData.total,type:"scatter",mode:"lines+markers",name:"Total sales"},
+      {x:salesData.dates,y:salesData.orders,type:"bar",name:"Orders",yaxis:"y2"}
+    ],{
+      title:"Daily sales and orders",margin:{t:45,r:45,b:45,l:55},
+      yaxis:{title:"AED"},yaxis2:{title:"Orders",overlaying:"y",side:"right",showgrid:false},
+      legend:{orientation:"h"}
+    },{displayModeBar:false,responsive:true});
 
-  <!-- SHOPIFY -->
-  <h2>Shopify performance</h2>
+    const sessData={
+      dates:["2026-08-10","2026-08-11","2026-08-12","2026-08-13","2026-08-14","2026-08-15","2026-08-16"],
+      sessions:[195,325,250,207,171,187,350],
+      cr:[1.54,0,2,1.45,.58,.53,2]
+    };
+    Plotly.newPlot("sessionsChart",[
+      {x:sessData.dates,y:sessData.sessions,type:"scatter",mode:"lines+markers",name:"Sessions"},
+      {x:sessData.dates,y:sessData.cr,type:"scatter",mode:"lines+markers",name:"CR %",yaxis:"y2"}
+    ],{
+      title:"Sessions and Shopify conversion rate",margin:{t:45,r:45,b:45,l:55},
+      yaxis:{title:"Sessions"},yaxis2:{title:"CR %",overlaying:"y",side:"right",showgrid:false},
+      legend:{orientation:"h"}
+    },{displayModeBar:false,responsive:true});
 
-  <h3>Daily performance</h3>
-  <div class="tw">
-    <table>
-      <thead>
-        <tr><th>День</th><th class="num">Orders</th><th class="num">Gross sales</th><th class="num">Total sales</th><th class="num">Sessions</th><th class="num">CR</th><th class="num">Cart additions</th><th class="num">Reached checkout</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>2026-08-10 (пн)</td><td class="num">3</td><td class="num">673.50 AED</td><td class="num">698.50 AED</td><td class="num">195</td><td class="num">1.54%</td><td class="num">8</td><td class="num">7</td></tr>
-        <tr><td>2026-08-11 (вт)</td><td class="num">0</td><td class="num">0.00 AED</td><td class="num">−163.00 AED</td><td class="num">325</td><td class="num">0.00%</td><td class="num">7</td><td class="num">1</td></tr>
-        <tr><td>2026-08-12 (ср)</td><td class="num">5</td><td class="num">874.50 AED</td><td class="num">974.50 AED</td><td class="num">250</td><td class="num">2.00%</td><td class="num">25</td><td class="num">18</td></tr>
-        <tr><td>2026-08-13 (чт)</td><td class="num">3</td><td class="num">402.00 AED</td><td class="num">−277.00 AED</td><td class="num">207</td><td class="num">1.45%</td><td class="num">11</td><td class="num">9</td></tr>
-        <tr><td>2026-08-14 (пт)</td><td class="num">1</td><td class="num">67.00 AED</td><td class="num">92.00 AED</td><td class="num">171</td><td class="num">0.58%</td><td class="num">8</td><td class="num">5</td></tr>
-        <tr><td>2026-08-15 (сб)</td><td class="num">1</td><td class="num">598.00 AED</td><td class="num">598.00 AED</td><td class="num">187</td><td class="num">0.53%</td><td class="num">7</td><td class="num">5</td></tr>
-        <tr><td>2026-08-16 (вс)</td><td class="num">8</td><td class="num">1 767.00 AED</td><td class="num">1 867.00 AED</td><td class="num">350</td><td class="num">2.00%</td><td class="num">18</td><td class="num">11</td></tr>
-        <tr class="total"><td>Итого</td><td class="num">21</td><td class="num">4 382.00 AED</td><td class="num">3 790.00 AED</td><td class="num">1 685</td><td class="num">1.19%</td><td class="num">84</td><td class="num">56</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="note">Отрицательный total sales 11 и 13 августа — это дни, в которые были проведены отмены заказов, оформленных ранее. 16 августа (воскресенье) дало 8 заказов и 49% недельного gross sales.</p>
-
-  <h3>Отменённые заказы</h3>
-  <div class="tw">
-    <table>
-      <thead><tr><th>Заказ</th><th>Оформлен</th><th>Отменён</th><th class="num">Сумма</th><th>Дней до отмены</th><th>Состав</th></tr></thead>
-      <tbody>
-        <tr><td>#3886</td><td>08.08.2026</td><td>13.08.2026</td><td class="num">729.00 AED</td><td class="num">5</td><td>3 × упаковки фиников х18</td></tr>
-        <tr><td>#3828</td><td>21.07.2026</td><td>11.08.2026</td><td class="num">163.00 AED</td><td class="num">21</td><td>3 × батончика</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="note">Оба заказа отменены покупателем, оплата не была списана (статус VOIDED). Заказ #3828 находился в системе 21 день до отмены. Дополнительно на 17 августа четыре заказа недели (#3894, #3900, #3902, #3904) на общую сумму 792 AED оставались в статусе ожидания оплаты.</p>
-
-  <h3>Источники заказов</h3>
-  <div class="tw">
-    <table>
-      <thead><tr><th>Source</th><th>Name</th><th class="num">Orders</th><th class="num">Total sales</th></tr></thead>
-      <tbody>
-        <tr><td>unattributed</td><td>direct / unknown</td><td class="num">8</td><td class="num">1 653.50 AED</td></tr>
-        <tr><td>unattributed</td><td>shopify</td><td class="num">4</td><td class="num">1 532.00 AED</td></tr>
-        <tr><td>social</td><td>instagram</td><td class="num">4</td><td class="num">427.50 AED</td></tr>
-        <tr><td>unattributed</td><td>instagram</td><td class="num">2</td><td class="num">362.00 AED</td></tr>
-        <tr><td>social</td><td>facebook</td><td class="num">1</td><td class="num">335.00 AED</td></tr>
-        <tr><td>search</td><td>google</td><td class="num">2</td><td class="num">−520.00 AED</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="note">Отрицательное значение по google — результат отмены заказа #3886, который был атрибутирован этому источнику. По last-click Shopify на Instagram и Facebook суммарно приходится 7 заказов.</p>
-
-  <!-- META -->
-  <h2>Meta Ads performance</h2>
-  <p class="lead">Рекламный аккаунт Nature's Own Factory. Данные прочитаны в Ads Manager, часовой пояс Dubai, окно атрибуции 7-day click + 1-day view.</p>
-
-  <div class="grid">
-    <div class="card"><div class="k">Spend</div><div class="v">1 198.21 AED</div><div class="d">vs 639.48 AED: <span class="up">↑ +87.4%</span></div></div>
-    <div class="card"><div class="k">Impressions</div><div class="v">19 760</div><div class="d">Reach: 9 160 · Frequency: 2.16</div></div>
-    <div class="card"><div class="k">CPM</div><div class="v">60.64 AED</div><div class="d">vs 58.43 AED: <span class="down">↑ +3.8%</span></div></div>
-    <div class="card"><div class="k">Link clicks</div><div class="v">237</div><div class="d">CTR 1.20% · CPC 5.06 AED</div></div>
-    <div class="card"><div class="k">Purchases (Meta)</div><div class="v">13</div><div class="d">CPA 92.17 AED</div></div>
-    <div class="card"><div class="k">ROAS (Meta)</div><div class="v">2.08</div><div class="d">vs 2.51: <span class="down">↓ −17.1%</span></div></div>
-  </div>
-
-  <h3>Campaign breakdown</h3>
-  <div class="tw">
-    <table>
-      <thead>
-        <tr><th>Кампания</th><th>Статус</th><th class="num">Spend</th><th class="num">Impr.</th><th class="num">Reach</th><th class="num">Freq.</th><th class="num">CPM</th><th class="num">Purch.</th><th class="num">CPA</th><th class="num">ROAS</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Sales | 15.08 | Partners NEW | ROAS</td><td>active</td><td class="num">202.34 AED</td><td class="num">3 049</td><td class="num">2 114</td><td class="num">1.44</td><td class="num">66.36 AED</td><td class="num">5</td><td class="num">40.47 AED</td><td class="num">4.77</td></tr>
-        <tr><td>Sales | 15.08 | LT budget | Roas</td><td>active</td><td class="num">68.94 AED</td><td class="num">900</td><td class="num">669</td><td class="num">1.35</td><td class="num">76.60 AED</td><td class="num">1</td><td class="num">68.94 AED</td><td class="num">6.51</td></tr>
-        <tr><td>Sales | 67 | LAL with catalog+</td><td>active</td><td class="num">393.00 AED</td><td class="num">8 134</td><td class="num">4 389</td><td class="num">1.85</td><td class="num">48.32 AED</td><td class="num">5</td><td class="num">78.60 AED</td><td class="num">2.24</td></tr>
-        <tr><td>Sales | 11.08 | Undertested winners | cost cap 70</td><td>off</td><td class="num">294.56 AED</td><td class="num">4 208</td><td class="num">3 376</td><td class="num">1.25</td><td class="num">70.00 AED</td><td class="num">1</td><td class="num">294.56 AED</td><td class="num">0.37</td></tr>
-        <tr><td>Sales | 08.04 | LAL with catalog+ - Copy 2</td><td>off</td><td class="num">239.37 AED</td><td class="num">3 469</td><td class="num">2 014</td><td class="num">1.72</td><td class="num">69.00 AED</td><td class="num">1</td><td class="num">239.37 AED</td><td class="num">0.37</td></tr>
-        <tr class="total"><td>Итого по аккаунту</td><td>—</td><td class="num">1 198.21 AED</td><td class="num">19 760</td><td class="num">9 160</td><td class="num">2.16</td><td class="num">60.64 AED</td><td class="num">13</td><td class="num">92.17 AED</td><td class="num">2.08</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <p><b>533.93 AED, или 44.6% недельного бюджета</b>, пришлось на две кампании с ROAS 0.37, которые были остановлены в течение недели. Три активные кампании суммарно израсходовали 664.28 AED, дали 11 покупок, средний ROAS <b>3.45</b> и CPA <b>60.39 AED</b>. Новые кампании от 15 августа показывают лучшие метрики в аккаунте (ROAS 4.77 и 6.51), но отработали всего два дня, поэтому выводы по ним предварительные.</p>
-
-  <p>Эффективность закупки стабильна: CTR 1.20% против 1.18%, CPC 5.06 AED против 4.96 AED, CPM 60.64 AED против 58.43 AED. Динамика недели определяется не стоимостью показа, а распределением бюджета между кампаниями.</p>
-
-  <h3>Сверка Shopify и Meta</h3>
-  <div class="tw">
-    <table>
-      <thead><tr><th>Показатель</th><th class="num">Значение</th></tr></thead>
-      <tbody>
-        <tr><td>Заказы, признанные в Shopify</td><td class="num">21</td></tr>
-        <tr><td>Total sales, признанные в Shopify</td><td class="num">3 790.00 AED</td></tr>
-        <tr><td>Заказы, атрибутированные Meta в Shopify (last-click, Instagram + Facebook)</td><td class="num">7</td></tr>
-        <tr><td>Покупки по данным Meta</td><td class="num">13</td></tr>
-        <tr><td>Ценность, атрибутированная Meta (не признанная выручка)</td><td class="num">≈ 2 492 AED</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="note">Meta фиксирует примерно вдвое больше покупок, чем показывает last-click атрибуция Shopify. Это ожидаемое направление расхождения при окне 1-day view и кросс-девайс переходах, однако величина разрыва не подтверждена независимо. Значение «ценность, атрибутированная Meta» не является признанной выручкой бизнеса и не должна складываться с Shopify total sales.</p>
-
-  <!-- PRODUCTS -->
-  <h2>Top products</h2>
-  <div class="tw">
-    <table>
-      <thead><tr><th>Продукт</th><th class="num">Gross sales</th><th class="num">Net sales</th><th class="num">Orders</th></tr></thead>
-      <tbody>
-        <tr><td>Dubai Chocolate</td><td class="num">921.00 AED</td><td class="num">921.00 AED</td><td class="num">10</td></tr>
-        <tr><td>Chocolate Bar with Popping Candy &amp; Crunchy Crispies</td><td class="num">828.00 AED</td><td class="num">782.00 AED</td><td class="num">8</td></tr>
-        <tr><td>Chocolate Bar with Cotton Candy &amp; Crunchy Crispies</td><td class="num">690.00 AED</td><td class="num">644.00 AED</td><td class="num">9</td></tr>
-        <tr><td>Milk Chocolate Bar with Crunchy Crispies</td><td class="num">322.00 AED</td><td class="num">276.00 AED</td><td class="num">5</td></tr>
-        <tr><td>Chocolate with Matcha x24 Packs</td><td class="num">270.00 AED</td><td class="num">270.00 AED</td><td class="num">1</td></tr>
-        <tr><td>Prebiotic Chocolate with Peanuts x 24 packs</td><td class="num">270.00 AED</td><td class="num">270.00 AED</td><td class="num">1</td></tr>
-        <tr><td>Milk Chocolate x 24 packs</td><td class="num">270.00 AED</td><td class="num">270.00 AED</td><td class="num">1</td></tr>
-        <tr><td>White Chocolate Covered Dates with Coconut Flakes x 18 Packs</td><td class="num">243.00 AED</td><td class="num">243.00 AED</td><td class="num">1</td></tr>
-        <tr><td>Chocolate Covered Dates With Himalayan Pink Salt x 18 Packs</td><td class="num">243.00 AED</td><td class="num">0.00 AED</td><td class="num">1</td></tr>
-        <tr><td>White Chocolate With Acai</td><td class="num">75.00 AED</td><td class="num">75.00 AED</td><td class="num">2</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="note">Четыре батончика сформировали 2 761 AED gross sales, или 63% недельного объёма. Позиция Himalayan Pink Salt x 18 Packs имеет net sales 0 AED — вся сумма была отменена. Крупные упаковки х18 и х24 (243–270 AED) — единственный сегмент, формирующий высокий средний чек.</p>
-
-  <h3>Складские остатки</h3>
-  <p>Ограничений по запасам в периоде не было. Остаток по топ-15 SKU — около 53 700 единиц, недельная оборачиваемость по большинству позиций ниже 1%. Наиболее оборачиваемая позиция — Dubai Chocolate: остаток 476 единиц при 26 проданных за неделю, что соответствует запасу примерно на 18 недель.</p>
-
-  <!-- CONTEXT -->
-  <h2>Рыночный контекст ОАЭ</h2>
-  <ul>
-    <li>Около половины резидентов ОАЭ этим летом остаются в стране из-за стоимости поездок, 72% называют торговые центры предпочтительным местом досуга. Летний период остаётся слабым для ритейла, но аудитория в стране более доступна, чем в обычные годы. <a href="https://www.khaleejtimes.com/travel/uae-2026-summer-travel-plan-hampered-by-costs-visa-delays" target="_blank" rel="noopener">Khaleej Times</a>, <a href="https://campaignme.com/why-residents-not-tourists-are-shaping-the-2026-uae-summer-season/" target="_blank" rel="noopener">Campaign Middle East</a></li>
-    <li>E-commerce ОАЭ в первом полугодии 2026 вырос на 2% по GMV на фоне сокращения онлайн-ритейла в регионе. Количество заказов снизилось на 9%, но средний чек вырос с 97 до 111 долларов — покупатели делают реже, но крупнее. Динамика AOV у NOF на этой неделе противоположна рынку. <a href="https://www.khaleejtimes.com/business/uae-e-commerce-defies-regional-slowdown-as-shoppers-make-fewer-but-bigger-purchases" target="_blank" rel="noopener">Khaleej Times</a></li>
-    <li>Категория «Dubai chocolate» / кунафа быстро насыщается: с начала 2025 года в сегмент вошли более 40 брендов, Mars запустил линейку кунафы под маркой Galaxy. Данные по динамике поискового спроса противоречивы — один источник фиксирует рост на 450% год к году, другой падение на 38% по состоянию на конец апреля 2026. Направление категории следует считать неопределённым. <a href="https://gulfnews.com/business/retail/dubai-kunafa-chocolate-global-brand-mars-enters-red-hot-market-through-galaxy-range-1.500141632" target="_blank" rel="noopener">Gulf News</a></li>
-  </ul>
-  <p class="note">Совпадение по времени не является доказательством причинно-следственной связи. Приведённые сигналы служат контекстом для интерпретации, а не объяснением недельной динамики.</p>
-
-  <!-- ACTIONS -->
-  <h2>Приоритетные действия на следующий период</h2>
-  <p class="lead">Все пункты являются предложениями и требуют вашего решения перед реализацией.</p>
-
-  <ol class="actions">
-    <li>
-      <div class="t">Сократить срок от заказа до отгрузки и наладить работу с неоплаченными заказами</div>
-      <p class="m"><b>Основание:</b> отмены на 867 AED, то есть 19.8% gross sales, против 4.1% медианы за четыре недели. Один заказ находился в системе 21 день до отмены. Ещё 792 AED в статусе ожидания оплаты на конец недели.</p>
-      <p class="m"><b>Механизм:</b> неотгруженные и несписанные заказы со временем превращаются в отмены. Это самая крупная управляемая потеря недели.</p>
-      <p class="m"><b>Метрика:</b> доля заказов, отгруженных в течение 48 часов; отмены как процент от gross sales; возраст неоплаченных заказов.</p>
-      <p class="m"><b>Ответственный:</b> операционная команда NOF. <b>Риск:</b> низкий. <b>Согласование:</b> внутреннее решение клиента.</p>
-    </li>
-    <li>
-      <div class="t">Отделить целевой трафик от нецелевого в отчётности и в сигнале пикселя</div>
-      <p class="m"><b>Основание:</b> США 40.9% и Сингапур 56.2% сессий в две соседние недели, конверсия desktop 0.14% против mobile 1.97%. Все заказы — из ОАЭ.</p>
-      <p class="m"><b>Механизм:</b> нецелевые сессии искажают отчётный CR и ухудшают обучение пикселя. Предлагаем сделать «CR по трафику ОАЭ» основным KPI, провести аудит географии показов и рассмотреть установку фильтра бот-трафика.</p>
-      <p class="m"><b>Метрика:</b> доля сессий из ОАЭ; CR по трафику ОАЭ.</p>
-      <p class="m"><b>Ответственный:</b> Victoria (отчётность), NOF (установка приложения при выборе этого варианта). <b>Риск:</b> низкий. <b>Согласование:</b> требуется до любых изменений в настройках кампаний.</p>
-    </li>
-    <li>
-      <div class="t">Сконцентрировать бюджет на трёх кампаниях с положительным ROAS и стабилизировать структуру аккаунта</div>
-      <p class="m"><b>Основание:</b> 533.93 AED, или 45% бюджета, ушло в кампании с ROAS 0.37. Активные три кампании работают со средним ROAS 3.45. При этом недельный бюджет на 45% ниже собственной медианы за четыре недели.</p>
-      <p class="m"><b>Механизм:</b> дробление бюджета между 91 кампанией и 727 объявлениями мешает выходу из фазы обучения и замедляет диагностику.</p>
-      <p class="m"><b>Метрика:</b> blended ROAS, CPA, доля бюджета в кампаниях с ROAS выше 2.0.</p>
-      <p class="m"><b>Ответственный:</b> Victoria. <b>Риск:</b> средний — слишком быстрое масштабирование может поднять CPA. <b>Согласование:</b> требуется, изменение бюджета.</p>
-    </li>
-    <li>
-      <div class="t">Защитить сегмент крупных упаковок</div>
-      <p class="m"><b>Основание:</b> снижение AOV на 44% почти полностью объясняется отменой одного заказа на упаковки х18. Позиции 243–270 AED — единственный сегмент с высоким чеком.</p>
-      <p class="m"><b>Механизм:</b> каждый такой заказ равен примерно четырём обычным. Предлагаем подтверждать наличие и дату отгрузки в момент оформления заказа на мультипаки.</p>
-      <p class="m"><b>Метрика:</b> доля отмен в сегменте мультипаков; AOV.</p>
-      <p class="m"><b>Ответственный:</b> операционная команда NOF. <b>Риск:</b> низкий. <b>Согласование:</b> операционное решение.</p>
-    </li>
-    <li>
-      <div class="t">Навести порядок в рекламном аккаунте</div>
-      <p class="m"><b>Основание:</b> 91 кампания и 727 объявлений, из них подавляющее большинство неактивны. В аккаунте находятся 4 неопубликованных изменения в статусе черновика.</p>
-      <p class="m"><b>Механизм:</b> избыточная структура повышает риск случайного перезапуска неэффективных кампаний и замедляет анализ.</p>
-      <p class="m"><b>Метрика:</b> количество активных кампаний; время на диагностику.</p>
-      <p class="m"><b>Ответственный:</b> Victoria. <b>Риск:</b> низкий. <b>Согласование:</b> требуется до архивации любых кампаний.</p>
-    </li>
-  </ol>
-
-  <!-- METHOD -->
-  <h2>Методология и ограничения</h2>
-  <ul>
-    <li>Shopify-данные получены через прямой коннектор Shopify. Meta-данные прочитаны в Meta Ads Manager в режиме чтения. Часовой пояс обоих источников — +04 (Dubai), валюта — AED.</li>
-    <li>AOV рассчитан как total sales / количество заказов — методика соответствует предыдущим отчётам архива.</li>
-    <li>Reach и frequency приведены на уровне аккаунта, с дедупликацией пересечений аудиторий между кампаниями.</li>
-    <li>«Ценность, атрибутированная Meta» рассчитана как spend × ROAS по данным платформы. Это оценка платформы, а не признанная выручка бизнеса.</li>
-    <li>Sessions и conversion rate в текущем периоде искажены нецелевым трафиком. Показатель «CR по трафику ОАЭ» рассчитан как заказы / сессии из ОАЭ и является оценкой, поскольку сессии и заказы атрибутируются по разным механизмам.</li>
-    <li>Объяснения, основанные на данных одного периода, обозначены как гипотезы и не считаются подтверждёнными.</li>
-  </ul>
-
-  <footer>
-    Nature's Own Factory · Shopify &amp; Meta Ads reporting · период 10–16 августа 2026 · подготовлено 17 августа 2026
-  </footer>
-
-</div>
+    const prodData={
+      labels:[
+        "Dubai Chocolate",
+        "Chocolate Bar with Popping Candy & Crunchy Crispies",
+        "Chocolate Bar with Cotton Candy & Crunchy Crispies",
+        "Milk Chocolate Bar with Crunchy Crispies",
+        "Chocolate with Matcha x24 Packs",
+        "Prebiotic Chocolate with Peanuts x 24 packs",
+        "Milk Chocolate x 24 packs",
+        "Chocolate Covered Dates With Himalayan Pink Salt x 18 Packs"
+      ],
+      gross:[921,828,690,322,270,270,270,243]
+    };
+    Plotly.newPlot("productsChart",[
+      {x:prodData.gross,y:prodData.labels,type:"bar",orientation:"h",name:"Gross sales"}
+    ],{
+      title:"Top products by gross sales",margin:{t:45,r:30,b:45,l:260},
+      xaxis:{title:"AED"},yaxis:{automargin:true,autorange:"reversed"}
+    },{displayModeBar:false,responsive:true});
+  </script>
 </body>
 </html>
+
